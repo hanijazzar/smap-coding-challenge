@@ -3,5 +3,38 @@
 {% block content %}
 
 <h1>{{message}}</h1>
+<div>
+    <table id="table">
+        <thead>
+            <th>User Id</th>
+            <th>Area</th>
+            <th>Tarif</th>
+        </thead>
+        <tbody>
+            {% for d in data %}
+                <tr>
+                    <td>{{d.user_id}}</td>
+                    <td>{{d.area}}</td>
+                    <td>{{d.tariff}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ 
+</div>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+
+<script>
+$(document).ready( function () {
+    $('#table').DataTable();
+} );
+</script>
 
 {% endblock %}
