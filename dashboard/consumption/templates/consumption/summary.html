@@ -2,39 +2,60 @@
 
 {% block content %}
 
-<h1>{{message}}</h1>
-<div>
-    <table id="table">
-        <thead>
-            <th>User Id</th>
-            <th>Area</th>
-            <th>Tarif</th>
-        </thead>
-        <tbody>
-            {% for d in data %}
-                <tr>
-                    <td>{{d.user_id}}</td>
-                    <td>{{d.area}}</td>
-                    <td>{{d.tariff}}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
- 
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
+
+
+
+    <!-- Area Chart -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Line Chart for Total Consumption</h6>
+        </div>
+        <div class="card-body">
+            <div class="chart-area">
+                <canvas id="myAreaChart"></canvas>
+            </div>
+            <!-- <hr> -->
+
+        </div>
+    </div>
+
+
+
+    <!-- DataTable for Users -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">User Consumption Table</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="background-color: #4e73df; color: white ">
+                        <th>User Id</th>
+                        <th>Area</th>
+                        <th>Tarif</th>
+                    </thead>
+                    <tbody>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.user_id}}</td>
+                            <td>{{d.area}}</td>
+                            <td>{{d.tariff}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- /.container-fluid -->
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
-
-
-<script>
-$(document).ready( function () {
-    $('#table').DataTable();
-} );
-</script>
 
 {% endblock %}
