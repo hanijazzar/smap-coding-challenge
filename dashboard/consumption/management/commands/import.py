@@ -28,9 +28,11 @@ class Command(BaseCommand):
         files_dir = path + 'consumption'
 
         # loop over the files in the consumption directory
+        i = 1
         for filename in os.listdir(files_dir):
             current_user_id = filename.split('.')[0]
-            print("Importing consumption data for user: " + current_user_id)
+            print("Importing consumption data for user: " + str(current_user_id) + " - (" + str(i) + "/60)" )
+            i = i + 1
             # open csv file and extract data and map it to UserConsumption model and save them
             with open(files_dir + '/' + filename) as f:
                 reader = csv.reader(f)

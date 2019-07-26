@@ -1,8 +1,16 @@
+{% load static from staticfiles %}
+
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
-  <body>
-    {% block content %}{% endblock content %}
-  </body>
+
+<head>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+  {% block content %}
+
+  {% endblock content %}
+</body>
+
 </html>
